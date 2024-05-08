@@ -112,7 +112,7 @@
 .card-title {
   font-size: 18px;
   line-height: 1.21;
-  font-variation-settings: "wght" var(--title-font-weight, 700);
+  font-variation-settings: "wgth" var(--title-font-weight, 700);
 }
 
 .card-wrapper {
