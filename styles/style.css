@@ -178,7 +178,8 @@
 }
 
 .card__icon-button:focus,
-.card__like-button:focus {
+.card__like-button:focus,
+.button:focus {
   outline: none;
 }
 
@@ -253,15 +254,15 @@
 .button:before {
   content: "";
   position: absolute;
-  width: 0;
-  height: 100%;
+  inline-size: 0;
+  block-size: 100%;
   inset: 0;
   background-color: var(--accent-color, #000);
   transition: .5s ease-in-out;
 }
 
 .button:hover:before {
-  width: 100%;
+  inline-size: 100%;
 }
 
 .button:focus-visible {
@@ -329,9 +330,8 @@
 
 .modal__icon {
   stroke: var(--accent-color, #000);
-  z-index: 10;
-  width: 90px;
-  height: 40px;
+  inline-size: 90px;
+  block-size: 40px;
 }
 
 .modal__button {
