@@ -189,12 +189,12 @@
 
 .card__icon-button:hover .main-body {
   fill: var(--accent-color, #000);
-  transition: fill .3s linear .05s; 
+  transition: fill .3s linear .05s;
 }
 
-.card__icon-button:hover .core { 
+.card__icon-button:hover .core {
   fill: var(--accent-color, #000);
-  transition: fill .3s linear; 
+  transition: fill .3s linear;
 }
 
 .like-icon {
