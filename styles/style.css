@@ -1,20 +1,395 @@
-/* Здесь вы напишете основную часть стилей страницы.
-
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ theme-dark — класс тёмной темы
-✦ theme-light — класс светлой темы
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
-
-Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
-
-*/
-
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  padding-block-start: 100px;
+  font-family: var(--main-font-family, "Inter", sans-serif), sans-serif;
+  font-variation-settings: 'wgth' var(--main-font-weight);
+  background-color: var(--background-color, #fff);
+  background-image: var(--background-image);
+  background-size: cover;
+  background-attachment: fixed;
+  color: var(--accent-color, #000);
+}
+
+
+.card {
+  inline-size: min(700px, 100%);
+  border: 2px solid var(--accent-color, #000);
+  background-color: var(--background-color, #fff);
+  margin: auto;
+}
+
+.header {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  font-family: var(--accent-font-family, "PressStart2P", fantasy), fantasy;
+  text-transform: uppercase;
+  margin-block-end: 100px;
+}
+
+.main {
+  display: grid;
+  justify-items: center;
+  gap: 57px;
+}
+
+.header-label {
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  margin-block-start: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem);
+  margin-block-end: 20px
+}
+
+.header-title {
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+}
+
+.header__theme-menu {
+  margin-block-start: 23px;
+  margin-block-end: 22px;
+}
+
+.theme-menu__list {
+  display: grid;
+  gap: 9px;
+  padding-inline-start: 20px;
+}
+
+.theme-menu__button {
+  position: relative;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  background: transparent;
+  transition: opacity .3s ease;
+}
+
+.theme-menu__button:disabled {
+  pointer-events: none;
+}
+
+.theme-menu__button:hover,
+.theme-menu__button:disabled {
+  opacity: .6;
+}
+
+.theme-menu__button:disabled::before {
+  content: "▶";
+  position: absolute;
+  animation: marker 0.5s ease-in-out infinite alternate;
+  inset-inline-start: -17px;
+  inset-block-start: 1px;
+}
+
+.theme-menu__button:after {
+  content: '';
+  display: block;
+  block-size: 2px;
+  inline-size: 100%;
+  background-color: var(--accent-color, #000);
+  transition: transform .3s ease;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.theme-menu__button:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.card-list {
+  display: grid;
+  gap: 50px;
+}
+
+.card-header {
+  border-block-end: 2px solid var(--accent-color, #000);
+  padding: 4px 10px;
+}
+
+.card-title {
+  font-size: 18px;
+  line-height: 1.21;
+  font-variation-settings: "wght" var(--title-font-weight, 700);
+}
+
+.card-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-image-label {
+    position: absolute;
+    opacity: 0.5;
+    font-family: var(--accent-font-family, "PressStart2P", fantasy);
+    font-size: 14px;
+    inset-inline-end: clamp(11px, 1.221vw + 6.423px, 24px);
+    inset-block-start: clamp(23px, 0.188vw + 22.296px, 25px);
+    mix-blend-mode: hard-light;
+    text-shadow:
+      -1px 0 var(--background-color, #fff),
+      0 1px var(--background-color, #fff),
+      1px 0 var(--background-color, #fff),
+      0 -1px var(--background-color, #fff);
+    z-index: 1;
+}
+
+@supports((-webkit-text-stroke: 1px var(--background-color, #fff)) or (text-stroke: 1px var(--background-color, #fff))) {
+  .card-image-label {
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--background-color, #fff);
+    text-stroke: 1px var(--background-color, #fff);
+  }
+}
+
+.card-image {
+  display: block;
+  inline-size: 100%;
+}
+
+.card-content {
+  display: grid;
+  gap: 27px;
+  border-block-start: 2px solid var(--accent-color, #000);
+  padding: 25px;
+  font-size: 18px;
+  line-height: 1.17;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 4px;
+  padding: 0 25px 23px;
+}
+
+/* Heart icon */
+
+.card__icon-button {
+  display: grid;
+  border: 2px solid transparent;
+  padding: 0;
+  background: var(--background-color, #fff);
+  transition: border-color .3s ease;
+  appearance: none;
+  cursor: pointer;
+}
+
+.card__icon-button:focus,
+.card__like-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border: 2px solid var(--accent-color, #000);
+}
+
+.card__icon-button:hover .main-body {
+  fill: var(--accent-color, #000);
+  transition: fill .3s linear .05s; 
+}
+
+.card__icon-button:hover .core { 
+  fill: var(--accent-color, #000);
+  transition: fill .3s linear; 
+}
+
+.like-icon {
+  inline-size: 39px;
+  block-size: 36px;
+}
+
+/* Heart icon active */
+
+.card__icon-button:active .core {
+  fill: var(--color-body-heart, #ff0000);
+  transition: fill 0.3s linear;
+}
+
+.card__icon-button:active .main-body {
+  fill: var(--color-body-heart, #ff0000);
+  transition: fill 0.3s linear 0.05s;
+}
+
+/* Heart icon click */
+
+.like-icon.is-liked .contour {
+  fill: var(--color-body-heart, #ff0000);
+  transition: fill .3s linear .06s;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--color-body-heart, #ff0000);
+  transition: fill .3s linear .05s;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--color-body-heart, #ff0000);
+  transition: fill .3s linear;
+}
+
+.like-icon.is-liked .heart {
+  transform-origin: center;
+  animation: heart .3s ease-in .1s 1 alternate;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks .3s ease-in .3s 1 alternate;
+}
+
+.button {
+  position: relative;
+  font-family: var(--accent-font-family, "PressStart2P", fantasy), fantasy;
+  font-size: 14px;
+  background-color: var(--background-color, #fff);
+  border: 2px solid var(--accent-color, #000);
+  transition: box-shadow .3s ease;
+  appearance: none;
+  cursor: pointer;
+}
+
+.button:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 100%;
+  inset: 0;
+  background-color: var(--accent-color, #000);
+  transition: 0.5s ease-in-out;
+}
+
+.button:hover:before {
+  width: 100%;
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px 0px 0px var(--accent-color, #000);
+}
+
+.card__like-button {
+  inline-size: 130px;
+  block-size: 38px;
+}
+
+.button__text {
+  color: var(--button-text-color, #fff);
+  mix-blend-mode: difference;
+}
+
+.footer {
+  display: grid;
+  justify-content: center;
+  padding: 52px 0 103px;
+}
+
+.button-save {
+  display: flex;
+  inline-size: 340px;
+  block-size: 55px;
+  align-items: center;
+  justify-content: center;
+}
+
+.floppy_image {
+  inline-size: 21px;
+  block-size: 21px;
+  margin-inline-end: 8px;
+  stroke: var(--button-text-color, #fff);
+  mix-blend-mode: difference;
+}
+
+/* Modal */
+
+.modal {
+  max-inline-size: 357px;
+  border: 2px solid var(--accent-color, #000);
+  background-color: var(--background-color, #fff);
+  font-family: var(--accent-font-family, fantasy), fantasy;
+  padding: 30px;
+  text-transform: uppercase;
+}
+
+.modal::backdrop {
+  opacity: 0.75;
+  background: #000;
+}
+
+.modal__content {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--accent-color, #000);
+  padding-block-end: 30px;
+}
+
+.modal__icon {
+  stroke: var(--accent-color);
+  z-index: 10;
+  width: 90px;
+  height: 40px;
+}
+
+.modal__button {
+  inline-size: 100%;
+  block-size: 38px;
+  text-transform: uppercase;
+}
+
+@media (width <= 375px) {
+  .button-save {
+    flex-direction: column;
+    justify-content: space-evenly;
+    inline-size: 306px;
+    block-size: 84px;
+  }
+  
+  .modal {
+    max-inline-size: 342px;
+    padding: 30px 42px;
+  }
+
+  .floppy_image {
+    inline-size: 28px;
+    block-size: 28px;
+  }
+}
+
+/* Styling images */
+
+.image-1 {
+  filter: blur(2px);
+}
+
+.image-2 {
+  filter: invert(1);
+}
+
+.image-3 {
+  filter: sepia(.6);
+}
+
+.image-4 {
+  filter: saturate(2);
+}
+
+.image-5 {
+  filter: hue-rotate(300deg);
+}
+
+.image-6 {
+  filter: grayscale(1);
+}
+
+.image-7 {
+  filter: brightness(.55);
+}
+
+.image-8 {
+  filter: hue-rotate(.3turn) brightness(.8) contrast(1.5);
 }
