@@ -21,3 +21,17 @@
     repeating-linear-gradient(to bottom, #000 0 2px, rgba(0, 0, 0, 0) 2px 4px),
     linear-gradient(to bottom, #007f0c .01%, #004306);
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --main-font-weight: 465;
+    --title-font-weight: 785;
+    --background-color: #000;
+    --accent-color: #00cc14;
+    --button-text-color: #00cc14;
+    --background-image: 
+      repeating-linear-gradient(to right, #000 0 2px, rgba(0, 0, 0, 0) 2px 4px),
+      repeating-linear-gradient(to bottom, #000 0 2px, rgba(0, 0, 0, 0) 2px 4px),
+      linear-gradient(to bottom, #007f0c .01%, #004306);
+  }
+}
