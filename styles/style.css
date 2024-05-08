@@ -40,7 +40,7 @@
 }
 
 .header-title {
-  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  font-size: clamp(.875rem, .6769rem + .8451vw, 1.4375rem);
 }
 
 .header__theme-menu {
@@ -78,7 +78,7 @@
 .theme-menu__button:disabled::before {
   content: "▶";
   position: absolute;
-  animation: marker 0.5s ease-in-out infinite alternate;
+  animation: marker .5s ease-in-out infinite alternate;
   inset-inline-start: -17px;
   inset-block-start: 1px;
 }
@@ -121,11 +121,11 @@
 
 .card-image-label {
     position: absolute;
-    opacity: 0.5;
-    font-family: var(--accent-font-family, "PressStart2P", fantasy);
+    opacity: .5;
+    font-family: var(--accent-font-family, "PressStart2P", fantasy), fantasy;
     font-size: 14px;
     inset-inline-end: clamp(11px, 1.221vw + 6.423px, 24px);
-    inset-block-start: clamp(23px, 0.188vw + 22.296px, 25px);
+    inset-block-start: clamp(23px, .188vw + 22.296px, 25px);
     mix-blend-mode: hard-light;
     text-shadow:
       -1px 0 var(--background-color, #fff),
@@ -205,12 +205,12 @@
 
 .card__icon-button:active .core {
   fill: var(--color-body-heart, #ff0000);
-  transition: fill 0.3s linear;
+  transition: fill .3s linear;
 }
 
 .card__icon-button:active .main-body {
   fill: var(--color-body-heart, #ff0000);
-  transition: fill 0.3s linear 0.05s;
+  transition: fill .3s linear .05s;
 }
 
 /* Heart icon click */
@@ -257,7 +257,7 @@
   height: 100%;
   inset: 0;
   background-color: var(--accent-color, #000);
-  transition: 0.5s ease-in-out;
+  transition: .5s ease-in-out;
 }
 
 .button:hover:before {
@@ -312,7 +312,7 @@
 }
 
 .modal::backdrop {
-  opacity: 0.75;
+  opacity: .75;
   background: #000;
 }
 
@@ -328,7 +328,7 @@
 }
 
 .modal__icon {
-  stroke: var(--accent-color);
+  stroke: var(--accent-color, #000);
   z-index: 10;
   width: 90px;
   height: 40px;
