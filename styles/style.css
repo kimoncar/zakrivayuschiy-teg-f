@@ -33,7 +33,7 @@
   gap: 57px;
 }
 
-.header-label {
+.header-logo {
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   margin-block-start: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem);
   margin-block-end: 20px
