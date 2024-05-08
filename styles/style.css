@@ -11,7 +11,6 @@
   color: var(--accent-color, #000);
 }
 
-
 .card {
   inline-size: min(700px, 100%);
   border: 2px solid var(--accent-color, #000);
@@ -271,7 +270,7 @@
 
 .card__like-button {
   inline-size: 130px;
-  block-size: 38px;
+  block-size: 40px;
 }
 
 .button__text {
