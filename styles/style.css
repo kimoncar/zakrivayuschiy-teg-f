@@ -361,34 +361,34 @@
 
 /* Styling images */
 
-.image-1 {
+.image-filter-blur {
   filter: blur(1px);
 }
 
-.image-2 {
+.image-filter-invert {
   filter: invert(1);
 }
 
-.image-3 {
+.image-filter-sepia {
   filter: sepia(.6);
 }
 
-.image-4 {
+.image-filter-saturate {
   filter: saturate(2);
 }
 
-.image-5 {
+.image-filter-hue-rotate {
   filter: hue-rotate(300deg);
 }
 
-.image-6 {
+.image-filter-grayscale {
   filter: grayscale(1);
 }
 
-.image-7 {
+.image-filter-brightness {
   filter: brightness(.55);
 }
 
-.image-8 {
+.image-filter-multiple {
   filter: hue-rotate(.3turn) brightness(.8) contrast(1.5);
 }
