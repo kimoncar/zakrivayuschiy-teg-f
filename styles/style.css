@@ -145,6 +145,9 @@
 .card-image {
   display: block;
   inline-size: 100%;
+  object-fit: cover;
+  object-position: center;
+  aspect-ratio: 1 / 1;
 }
 
 .card-content {
@@ -359,7 +362,7 @@
 /* Styling images */
 
 .image-1 {
-  filter: blur(2px);
+  filter: blur(1px);
 }
 
 .image-2 {
