@@ -179,9 +179,7 @@
   cursor: pointer;
 }
 
-.card__icon-button:focus,
-.card__like-button:focus,
-.button:focus {
+.card__icon-button:focus {
   outline: none;
 }
 
@@ -265,6 +263,10 @@
 
 .button:hover:before {
   inline-size: 100%;
+}
+
+.button:focus {
+  outline: none;
 }
 
 .button:focus-visible {
