@@ -70,7 +70,8 @@
 }
 
 .theme-menu__button:hover,
-.theme-menu__button:disabled {
+.theme-menu__button:disabled,
+.theme-menu__button:focus-visible {
   opacity: .6;
 }
 
@@ -304,12 +305,20 @@
 /* Modal */
 
 .modal {
-  max-inline-size: 357px;
   border: 2px solid var(--accent-color, #000);
-  background-color: var(--background-color, #fff);
-  font-family: var(--accent-font-family, fantasy), fantasy;
-  padding: 30px;
+  padding: 25px 30px;
+  color: var(--accent-color, #000);
+  font-family: var(--accent-font-family, fantasy), fantasy;  
+  line-height: 1.5;
   text-transform: uppercase;
+  background-color: var(--background-color, #fff);
+  max-inline-size: 357px;
+}
+
+.modal[open] {
+  display: grid;
+  grid-template-rows: repeat(2, min-content);
+  gap: 30px;
 }
 
 .modal::backdrop {
@@ -319,19 +328,15 @@
 
 .modal__content {
   display: flex;
-  gap: 20px;
-  justify-content: center;
   align-items: center;
-  font-size: 14px;
-  line-height: 1.5;
-  color: var(--accent-color, #000);
-  padding-block-end: 30px;
+  gap: 16px;
 }
 
 .modal__icon {
   stroke: var(--accent-color, #000);
-  inline-size: 90px;
-  block-size: 40px;
+  inline-size: 39px;
+  block-size: 39px;
+  flex-shrink: 0;
 }
 
 .modal__button {
