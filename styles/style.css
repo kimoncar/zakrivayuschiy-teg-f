@@ -273,7 +273,7 @@
 
 .card__like-button {
   inline-size: 130px;
-  block-size: 40px;
+  min-block-size: 40px;
 }
 
 .button__text {
@@ -284,7 +284,7 @@
 .button-save {
   display: flex;
   inline-size: 335px;
-  block-size: 55px;
+  min-block-size: 55px;
   align-items: center;
   justify-content: center;
   margin-block-start: 50px;
